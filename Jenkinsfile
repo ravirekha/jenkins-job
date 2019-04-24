@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "uhub.service.ucloud.cn"
-    registry_path = 'ws_kubernetes_mirror'
+    registry_path = 'ws_kubernets_mirror'
     registryCredential = 'uhub'
     ANSIBLE_VERSION = '2.4.0.0'
     TERRAFORM_VERSION = '0.11.13'
@@ -21,7 +21,7 @@ pipeline {
       steps{
         script {
          sh 'env'
-         dockerImage = docker.build("${registry}/${registry_path}/${imageName}" + ":latest", "--build-arg ANSIBLE_VERSION=\"${ANSIBLE_VERSION}\" --no-cache .")
+         dockerImage = docker.build("${registry}/${registry_path}/${imageName}" + ":latest", "--build-arg ANSIBLE_VERSION=\"${ANSIBLE_VERSION}\" --build-arg TERRAFORM_VERSION=\"${TERRAFORM_VERSION}\" --no-cache .")
         }
       }
     }
