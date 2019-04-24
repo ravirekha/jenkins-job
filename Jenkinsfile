@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/ravirekha/'
+        git 'https://github.com/ravirekha/jenkins-job.git'
       }
     }
     stage('Building image') {
