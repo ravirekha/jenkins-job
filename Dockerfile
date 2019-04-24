@@ -18,7 +18,7 @@ RUN apt-get update \
 ARG ANSIBLE_VERSION=${ANSIBLE_VERSION}
 
 RUN apt-get update && \
-#    apt-get install -y python && \
+    apt-get install -y python && \
     apt-get install -y python3.6-dev libmysqlclient-dev && \
     apt-get install -y python3-numpy && \
     apt-get install -y python3-pip && \
