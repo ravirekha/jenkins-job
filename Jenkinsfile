@@ -9,12 +9,12 @@ pipeline {
     imageName = "ws-jenkins-slave:latest"
     }
   agent {
-  label 'docker_slave1'
+  label 'slave2'
   }
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/ravirekha/uhub-docker.git'
+        git 'https://github.com/ravirekha/'
       }
     }
     stage('Building image') {
