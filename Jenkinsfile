@@ -9,7 +9,7 @@ pipeline {
     imageName = "ws-jenkins-slave"
     }
   agent {
-  label 'slave2'
+  label 'slave1'
   }
   stages {
     stage('Cloning Git') {
