@@ -6,7 +6,7 @@ pipeline {
     ANSIBLE_VERSION = '2.4.0.0'
     TERRAFORM_VERSION = '0.11.13'
     dockerImage = ''
-    imageName = "ws-jenkins-slave:latest"
+    imageName = "ws-jenkins-slave"
     }
   agent {
   label 'slave2'
