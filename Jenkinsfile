@@ -3,6 +3,8 @@ pipeline {
     registry = "uhub.service.ucloud.cn"
     registry_path = 'ws_kubernetes_mirror'
     registryCredential = 'uhub'
+    ANSIBLE_VERSION = '2.4.0.0'
+    TERRAFORM_VERSION = '0.11.13'
     dockerImage = ''
     imageName = "ws-jenkins-slave:latest"
     }
@@ -19,7 +21,7 @@ pipeline {
       steps{
         script {
          sh 'env'
-          dockerImage = docker.build("${registry}/${registry_path}/${imageName}")
+         dockerImage = docker.build("${registry}/${registry_path}/${imageName}" + ":${branch}", "--build-arg ANSIBLE_VERSION=\"${ANSIBLE_VERSION}\" --no-cache .")
         }
       }
     }
