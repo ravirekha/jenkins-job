@@ -21,7 +21,7 @@ pipeline {
       steps{
         script {
          sh 'env'
-         dockerImage = docker.build("${registry}/${registry_path}/${imageName}" + ":latest", "--build-arg ANSIBLE_VERSION=\"${ANSIBLE_VERSION}\" --no-cache .")
+         dockerImage = docker.build("${registry}/${registry_path}/${imageName}" + ":latest", "--build-arg ANSIBLE_VERSION=\"${ANSIBLE_VERSION}\", "--build-arg TERRAFORM_VERSION=\"${TERRAFORM_VERSION}\"    --no-cache .")
         }
       }
     }
@@ -30,7 +30,7 @@ pipeline {
         script {
          sh 'env'
          docker.withRegistry( "https://${registry}", "${registryCredential}" ) {       
-         dockerImage.push()
+          dockerImage.push()
          }
         }
       }
