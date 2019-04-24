@@ -15,6 +15,7 @@ RUN apt-get update \
 # Install Python & Ansible
 
 #ENV ANSIBLE_VERSION=2.4.0.0
+ARG ANSIBLE_VERSION=${ANSIBLE_VERSION}
 
 RUN apt-get update && \
     apt-get install -y python && \
