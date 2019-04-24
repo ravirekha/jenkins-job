@@ -18,7 +18,7 @@ RUN apt-get update \
 ARG ANSIBLE_VERSION=${ANSIBLE_VERSION}
 
 RUN apt-get update && \
-    apt-get install -y python && \
+#    apt-get install -y python && \
     apt-get install -y python3.6-dev libmysqlclient-dev && \
     apt-get install -y python3-numpy && \
     apt-get install -y python3-pip && \
@@ -37,7 +37,7 @@ RUN apt-get update && \
 #ENV TERRAFORM_VERSION=0.11.13
 #ENTRYPOINT ["/usr/bin/terraform"]
 #CMD ["--help"]
-
+ARG TERRAFORM_VERSION=${TERRAFORM_VERSION}
 RUN wget --quiet https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
     && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
     && mv terraform /usr/bin \
