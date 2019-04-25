@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "uhub.service.ucloud.cn"
-    registry_path = 'ws_kubernets_mirror'
+    registry_path = 'ws_kubernetes_mirror'
     registryCredential = 'uhub'
     ANSIBLE_VERSION = '2.4.0.0'
     TERRAFORM_VERSION = '0.11.13'
