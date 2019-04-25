@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 MAINTAINER Ravi kumar G <ravikumar@oncam.com>
 
-#Install Git Curl Wget tar vim vi
+#Install Git Curl Wget tar vim 
 
 RUN apt-get update \
     && apt-get install -y wget \
@@ -14,7 +14,6 @@ RUN apt-get update \
 
 # Install Python & Ansible
 
-#ENV ANSIBLE_VERSION=2.4.0.0
 ARG ANSIBLE_VERSION=${ANSIBLE_VERSION}
 
 RUN apt-get update && \
@@ -33,10 +32,6 @@ RUN apt-get update && \
 
 # Install Terraform
 
-
-#ENV TERRAFORM_VERSION=0.11.13
-#ENTRYPOINT ["/usr/bin/terraform"]
-#CMD ["--help"]
 ARG TERRAFORM_VERSION=${TERRAFORM_VERSION}
 RUN wget --quiet https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
     && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
